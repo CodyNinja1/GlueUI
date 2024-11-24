@@ -45,16 +45,16 @@ def ColorPaletteToVec4(l: list[tuple]) -> list[Vec4]:
     return list([TupleToVec4(tup) for tup in l])
 
 class UiManager:
-    def __init__(self):
+    def __init__(self, WindowTitle: str = "GlueUi", Resolution: Nat2 = Nat2(848, 480)):
         # Initialize SDL and TTF
         sdl2.SDL_Init(sdl2.SDL_INIT_VIDEO)
         sdlttf.TTF_Init()
         
         self.Window = sdl2.SDL_CreateWindow(
-            b"ChannelNotif",
+            WindowTitle.encode('ascii'),
             sdl2.SDL_WINDOWPOS_CENTERED,
             sdl2.SDL_WINDOWPOS_CENTERED,
-            848, 480, sdl2.SDL_WINDOW_SHOWN
+            Resolution.X, Resolution.Y, sdl2.SDL_WINDOW_SHOWN
         )
         
         # Use SDL_RENDERER_PRESENTVSYNC for smooth rendering and double buffering
