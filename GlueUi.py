@@ -3,7 +3,6 @@ import sdl2
 import sdl2.ext as sdl2ext
 import sdl2.sdlttf as sdlttf
 import ctypes
-from SettingsHandler import GetSettings
 
 class Nat2:
     def __init__(self, X: int, Y: int):
@@ -78,8 +77,8 @@ class UiManager:
         self.Buttons: dict[str, dict] = {}  # Dictionary to store states of all buttons
 
         # Color palette and UI mode
-        self.ColorPalette: list[Vec4] = ColorPaletteToVec4(GetSettings().Ui.ColorPalette)
-        self.IsDarkMode: bool = GetSettings().Ui.IsDarkMode
+        self.ColorPalette: list[Vec4] = [Vec4(0, 0.922, 0.451), Vec4(0, 0.78, 0.376), Vec4(0, 0.62, 0.298), Vec4(0, 0.459, 0.224), Vec4(0, 0.302, 0.149)]
+        self.IsDarkMode: bool = True
 
     def Button(self, Label: str, Pos: Nat2, FontName: str, OnClick: callable, 
            ColorTextIdx: int = 2, ColorHoverIdx: int = 1, ColorNormalIdx: int = 3, 
