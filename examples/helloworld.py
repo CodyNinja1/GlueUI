@@ -13,7 +13,7 @@ def SetTooltip(String: str):
     else:
         Tooltip = f"Description:\n\n{String}"
 
-def InitUi(UiMgr: GlueUiManager, Log: Logger):
+def InitUi(UiMgr: GlueUiManager):
     UiMgr.LoadFont("Fonts/GeistMonoLight.ttf", "Large", 32)
     UiMgr.LoadFont("Fonts/GeistMonoExtraLightManiaIcons.ttf", "Medium", 16)
     UiMgr.LoadFont("Fonts/GeistMonoExtraLightManiaIcons.ttf", "SmallIcons", 11)
@@ -21,9 +21,6 @@ def InitUi(UiMgr: GlueUiManager, Log: Logger):
 def Main():
     UiMgr = GlueUiManager(WindowTitle = "Hello world!")
     InitUi(UiMgr)
-
-    Log.Log("[FRONTEND] Hello, world!")
-    Log.Log(f"[FRONTEND] ChannelNotif {Setting.Updates.Version}")
 
     while UiMgr.Running:
         UiMgr.Begin()
@@ -42,6 +39,8 @@ def Main():
         Checked, CheckboxHovered = UiMgr.Checkbox("Testing", Nat2(100, 160), "Medium")
         if CheckboxHovered:
             SetTooltip(f"Checkbox.\nIt is{"n't" if not Checked else ""} checked.")
+
+        RenderTooltip(UiMgr)
 
         UiMgr.End()
 
