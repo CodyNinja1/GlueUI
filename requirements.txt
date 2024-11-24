@@ -1,0 +1,6 @@
+beautifulsoup4==4.12.3
+win11toast
+pysdl2
+pysdl2-dll
+requests
+Pillow
