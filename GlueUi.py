@@ -1,5 +1,5 @@
 # GlueUi: A basic UI library built upon pySDL2 for Python 3.12
-# Copyright (C) 2024 Ahmad S.
+# Copyright (C) 2024 Ahmad "JailMan" S.
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
